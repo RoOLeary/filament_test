@@ -28,9 +28,25 @@ class PageController extends Controller
         return view('welcome', ['pages' => $pages, 'data' => $data]);
     }
 
+
+    public function snout(){
+        
+        $data = [
+            'title' => 'Ass',
+            'diddies' => 'Diddies',
+            'schnort' => 'Vajayjay'
+        ];
+
+        
+        return view('snout', ['data' => $data]);
+    }
+
+
+
+
     public function show($slug){
 
-        $page = Page::where('slug', $slug)->firstOrFail();
+        $page = Page::whereIn('slug', $slug)->firstOrFail();
         return view('show', ['page' => $page]);
     }
 

@@ -23,7 +23,7 @@ class PageResource extends Resource
 {
     protected static ?string $model = Page::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-pencil-alt';
 
     public static function form(Form $form): Form
     {
@@ -43,7 +43,7 @@ class PageResource extends Resource
                     ->required()
                     ->maxLength(255),
             
-                Forms\Components\Builder::make('content')
+                Forms\Components\Builder::make('block')
                     ->blocks([
                         Forms\Components\Builder\Block::make('heading')
                             ->schema([

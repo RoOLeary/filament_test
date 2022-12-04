@@ -15,7 +15,7 @@ class Page extends Model
         'title', 
         'slug', 
         'body', 
-        'content', 
+        'blocks', 
         'excerpt'
     ];
 
