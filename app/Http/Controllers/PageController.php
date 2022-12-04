@@ -23,7 +23,7 @@ class PageController extends Controller
             'schnort' => 'Vajayjay'
         ];
 
-        // dd($data->title);
+        dd($pages);
         
         return view('welcome', ['pages' => $pages, 'data' => $data]);
     }
@@ -46,7 +46,7 @@ class PageController extends Controller
 
     public function show($slug){
 
-        $page = Page::whereIn('slug', $slug)->firstOrFail();
+        $page = Page::where('slug', $slug)->firstOrFail();
         return view('show', ['page' => $page]);
     }
 

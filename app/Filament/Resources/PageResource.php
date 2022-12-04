@@ -18,6 +18,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+// use Filament\Forms\Components\Builder;
 
 class PageResource extends Resource
 {
@@ -33,19 +34,20 @@ class PageResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('excerpt')
-                    ->maxLength(65535),
+                // Forms\Components\Textarea::make('excerpt')
+                //     ->maxLength(65535),
                 Forms\Components\Textarea::make('body')
                     ->maxLength(65535),
-                Forms\Components\TextInput::make('image')
-                    ->maxLength(255),
+                // Forms\Components\TextInput::make('image')
+                //     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
             
-                Forms\Components\Builder::make('block')
+                Forms\Components\Builder::make('content')
                     ->blocks([
                         Forms\Components\Builder\Block::make('heading')
+                            ->icon('heroicon-o-bookmark')
                             ->schema([
                                 TextInput::make('content')
                                     ->label('Heading')
@@ -62,12 +64,14 @@ class PageResource extends Resource
                                     ->required(),
                             ]),
                         Forms\Components\Builder\Block::make('paragraph')
+                            ->icon('heroicon-o-pencil-alt')
                             ->schema([
                                 MarkdownEditor::make('content')
                                     ->label('Paragraph')
                                     ->required(),
                             ]),
                         Forms\Components\Builder\Block::make('image')
+                            ->icon('heroicon-o-cog')
                             ->schema([
                                 FileUpload::make('url')
                                     ->label('Image')
@@ -88,7 +92,6 @@ class PageResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('excerpt'),
-                Tables\Columns\TextColumn::make('content'),
                 Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\TextColumn::make('meta_description'),
                 Tables\Columns\TextColumn::make('meta_keywords'),

@@ -74,6 +74,7 @@ class PageController extends Controller
     public function edit(Page $page)
     {
         //
+        return true;
     }
 
     /**
@@ -90,7 +91,7 @@ class PageController extends Controller
         return response()->json([
             'status' => true,
             'message' => "Page Updated successfully!",
-            'Page' => $page
+            'page' => $page
         ], 200);
     }
 

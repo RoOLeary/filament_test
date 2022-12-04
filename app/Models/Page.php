@@ -15,10 +15,13 @@ class Page extends Model
         'title', 
         'slug', 
         'body', 
-        'blocks', 
+        'content', 
         'excerpt'
     ];
 
+    protected $casts = [
+        'content' => 'array',
+    ];
 
     public function getRouteKeyName(){
         return 'slug';
